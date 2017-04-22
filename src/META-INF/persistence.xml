@@ -13,7 +13,8 @@
 		<class>br.usjt.arqdes16.mapeamento.model.Tipo</class>
 		<class>br.usjt.arqdes16.mapeamento.model.Usuario</class>
 		<properties>
-			<!-- dados da conexao foram migrados para o spring-context.xml na configuracao do datasource-->
+			<!-- dados da conexao foram migrados para o spring-context.xml na configuracao 
+				do datasource -->
 			<!-- propriedades do hibernate -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.show_sql" value="true" />

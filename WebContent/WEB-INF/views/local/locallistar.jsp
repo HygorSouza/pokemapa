@@ -18,11 +18,11 @@
 
 <body>
 	<!-- Modal -->
-	<jsp:include page="modal_excluir_local.jsp"/>
+	<jsp:include page="modal_excluir_local.jsp" />
 
 	<!-- /.modal -->
 	<!-- Barra superior com os menus de navegação -->
-	<jsp:include page="navbar.jsp"/>
+	<jsp:include page="navbar.jsp" />
 	<!-- Container Principal -->
 	<div id="main" class="container-fluid">
 		<form action="listar_locais" method="post">
@@ -33,7 +33,8 @@
 
 				<div class="col-md-6">
 					<div class="input-group h2">
-						<input name="chave" class="form-control" id="search" type="text" placeholder="Pesquisar Locais (deixe vazio para trazer todos)">
+						<input name="chave" class="form-control" id="search" type="text"
+							placeholder="Pesquisar Locais (deixe vazio para trazer todos)">
 						<span class="input-group-btn">
 							<button class="btn btn-primary" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
@@ -43,7 +44,8 @@
 				</div>
 
 				<div class="col-md-3">
-					<a href="novo_local" class="btn btn-primary pull-right h2">Novo Local</a>
+					<a href="novo_local" class="btn btn-primary pull-right h2">Novo
+						Local</a>
 				</div>
 			</div>
 			<!-- /#top -->
@@ -56,7 +58,7 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-							    <th>Foto</th>
+								<th>Foto</th>
 								<th>ID</th>
 								<th>Nome</th>
 								<th>Tipo</th>
@@ -69,18 +71,29 @@
 						<tbody>
 							<c:forEach var="local" items="${locais}">
 								<tr id="local_${local.id}">
-									<td><img alt="?" src="res/img/${local.imagem}"  height="48" width="48" class="img-circle"></td>
+									<td>
+										<c:choose>
+											<c:when test="${not empty local.imagem}">
+												<img alt="?" src="res/img/${local.imagem}" height="48" width="48" class="img-circle"/>	
+											</c:when>
+											<c:otherwise>
+												<div class="panel"></div>
+											</c:otherwise>	
+										</c:choose>
+									</td>
 									<td>${local.id }</td>
 									<td>${local.nome }</td>
 									<td>${local.tipo.nome }</td>
 									<td>${local.logradouro }</td>
 									<td>${local.latitude }</td>
 									<td>${local.longitude }</td>
-									<td class="actions">
-										<a class="btn btn-success btn-xs" href="mostrar_local?id=${local.id }">Exibir</a> 
-										<a class="btn btn-warning btn-xs" href="alterar_local?id=${local.id }">Alterar</a>
-										<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-local="${local.id }">Excluir</button>
-									</td>
+									<td class="actions"><a class="btn btn-success btn-xs"
+										href="mostrar_local?id=${local.id }">Exibir</a> <a
+										class="btn btn-warning btn-xs"
+										href="alterar_local?id=${local.id }">Alterar</a>
+										<button type="button" class="btn btn-danger btn-xs"
+											data-toggle="modal" data-target="#delete-modal"
+											data-local="${local.id }">Excluir</button></td>
 								</tr>
 							</c:forEach>
 

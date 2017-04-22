@@ -33,7 +33,7 @@ public class LoginController {
 		try {
 			if(us.validar(usuario)){
 				session.setAttribute(USUARIO_LOGADO, usuario);
-				return "redirect:listar_locais";
+				return "redirect:limpar_locais";
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

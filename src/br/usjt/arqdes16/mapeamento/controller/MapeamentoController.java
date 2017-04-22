@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -176,12 +175,11 @@ public class MapeamentoController {
 			us.criar(usuario);
 			session.setAttribute(LoginController.USUARIO_LOGADO, usuario);
 			return "redirect:limpar_locais";
-		} catch (IOException  | DataIntegrityViolationException e) {
-			request.setAttribute("usuarioExistente", usuario);
+		}catch ( Exception e) {
+			request.setAttribute("usuarioExistente", usuario.getUsername());
 			e.printStackTrace();
-			//model.addAttribute("erro", e);
+			return "usuario_criar";
 		}
-		return "usuario_criar";
 	}
 	
 }

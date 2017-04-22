@@ -14,7 +14,7 @@ public class UsuarioDAO {
 	@PersistenceContext
 	EntityManager manager;
 	
-	public void criar(Usuario usuario){
+	public void criar(Usuario usuario) throws Exception{
 		manager.persist(usuario);
 	}
 	

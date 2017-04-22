@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -7,8 +7,9 @@
 <title>Localização</title>
 </head>
 <body>
-<p>Latitude: ${localizacao.lat }<p>
-<p>Longitude: ${localizacao.lng}<p>
-
+	<p>Latitude: ${localizacao.lat }
+	<p>
+	<p>Longitude: ${localizacao.lng}
+	<p>
 </body>
 </html>

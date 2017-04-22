@@ -17,7 +17,8 @@
 	</bean>
 	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost/mapeamento?createDatabaseIfNotExist=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost/mapeamento?createDatabaseIfNotExist=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="papagaio123"></property>
 	</bean>
@@ -37,6 +38,6 @@
 	<mvc:interceptors>
 		<bean class="br.usjt.arqdes16.mapeamento.interceptor.AutorizadorInterceptor" />
 	</mvc:interceptors>
-	 <bean id="multipartResolver"
-    	class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 </beans>
